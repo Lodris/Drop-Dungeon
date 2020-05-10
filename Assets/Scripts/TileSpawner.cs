@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileSpawner : MonoBehaviour {
+    public Sprite Sprite;
+
 #pragma warning disable 0649
     [SerializeField] private GameObject tile;
 #pragma warning restore 0649
 
-    public void Spawn(int num) {
+    private SpriteRenderer spriteRenderer;
+
+    public void Spawn(int num, Sprite sprite) {
         if (num == 1) {
-            PlatformPositioner.LastTransform = Instantiate(tile, transform.position, Quaternion.identity,transform.parent).transform;
+            Transform tileTransform = Instantiate(tile, transform.position, Quaternion.identity, TilemapManager.Instance.Platforms).transform;
+            PlatformPositioner.LastTransform = tileTransform;
+            spriteRenderer = tileTransform.GetComponent<SpriteRenderer>();
+            spriteRenderer.sprite = sprite;
         }
     }
 }

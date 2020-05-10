@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameplayController : MonoBehaviour {
-    public static GameplayController instance { get; private set; }
+    public static GameplayController Instance { get; private set; }
 
     private void Awake() {
-        if (instance == null) {
-            instance = this;
-        } else if (instance != this) {
+        if (Instance == null) {
+            Instance = this;
+        } else if (Instance != this) {
             Destroy(gameObject);
             return;
         }
@@ -16,10 +16,10 @@ public class GameplayController : MonoBehaviour {
 
     private void Start() {
         PlayerManager.instance.Init();
-        TilemapManager.instance.Init();
+        TilemapManager.Instance.Init();
     }
 
     private void OnDestroy() {
-        instance = null;
+        Instance = null;
     }
 }
