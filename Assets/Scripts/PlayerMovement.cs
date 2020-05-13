@@ -21,13 +21,23 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         Move();
+
+        //if (_rigidbody2D.velocity.y < 0) {
+        //    _rigidbody2D.velocity += new Vector2(0f, -0.8f);
+        //}
     }
 
     public void Right() {
+        if (_horizontalMove == 0) {
+            PlayerManager.Instance._animator.SetBool("isMoving", true);
+        }
         _horizontalMove = _runSpeed;
     }
 
     public void Left() {
+        if (_horizontalMove == 0) {
+            PlayerManager.Instance._animator.SetBool("isMoving", true);
+        }
         _horizontalMove = -_runSpeed;
     }
 
@@ -48,5 +58,12 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.collider.CompareTag("Walls")) {
+            PlayerManager.Instance._animator.SetBool("isMoving", false);
+            _horizontalMove = 0;
+        }
     }
 }

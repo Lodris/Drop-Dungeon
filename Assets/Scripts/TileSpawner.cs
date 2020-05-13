@@ -11,12 +11,10 @@ public class TileSpawner : MonoBehaviour {
 
     private SpriteRenderer spriteRenderer;
 
-    public void Spawn(int num, Sprite sprite) {
-        if (num == 1) {
-            Transform tileTransform = Instantiate(tile, transform.position, Quaternion.identity, TilemapManager.Instance.Platforms).transform;
-            PlatformPositioner.LastTransform = tileTransform;
-            spriteRenderer = tileTransform.GetComponent<SpriteRenderer>();
-            spriteRenderer.sprite = sprite;
-        }
+    public void Spawn(Sprite sprite) {
+        Transform tileTransform = Instantiate(tile, transform.position, Quaternion.identity, TilemapManager.Instance.Platforms).transform;
+        PlatformPositioner.LastTransform = tileTransform;
+        spriteRenderer = tileTransform.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = sprite;
     }
 }

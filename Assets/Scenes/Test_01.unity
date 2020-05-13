@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 328921974}
   m_Layer: 0
   m_Name: MiddleWalls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1012,8 +1012,8 @@ MonoBehaviour:
   onWorldFromTo:
     m_PersistentCalls:
       m_Calls: []
-  IgnoreStartedOverGui: 0
-  IgnoreIsOverGui: 0
+  IgnoreStartedOverGui: 1
+  IgnoreIsOverGui: 1
   RequiredSelectable: {fileID: 0}
 --- !u!1 &417727876
 GameObject:
@@ -2593,7 +2593,7 @@ GameObject:
   - component: {fileID: 1348089698}
   m_Layer: 0
   m_Name: UpperWalls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2944,7 +2944,7 @@ GameObject:
   - component: {fileID: 1453492464}
   m_Layer: 0
   m_Name: LowerWalls
-  m_TagString: Untagged
+  m_TagString: Walls
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3252,8 +3252,8 @@ MonoBehaviour:
   onWorldFromTo:
     m_PersistentCalls:
       m_Calls: []
-  IgnoreStartedOverGui: 0
-  IgnoreIsOverGui: 0
+  IgnoreStartedOverGui: 1
+  IgnoreIsOverGui: 1
   RequiredSelectable: {fileID: 0}
 --- !u!1001 &1521087203
 PrefabInstance:
@@ -3907,7 +3907,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 9877edaf971648549bd1a276db9dce89, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3927,8 +3927,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802790902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.27, y: 2.08, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.13, y: 1.8, z: 0}
+  m_LocalScale: {x: -0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -3979,9 +3979,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.27, y: -0.42}
   serializedVersion: 2
-  m_Radius: 0.9
+  m_Radius: 0.49
 --- !u!114 &1802790908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3995,7 +3995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSmoothing: 0.05
-  _runSpeed: 30
+  _runSpeed: 25
 --- !u!114 &1802790909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,6 +4010,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerMovement: {fileID: 1802790908}
   _playerAttack: {fileID: 1802790905}
+  _animator: {fileID: 0}
 --- !u!95 &1802790910
 Animator:
   serializedVersion: 3
@@ -4278,8 +4279,8 @@ MonoBehaviour:
   _platformLength: 80
   _gapLength: 15
   _rowGapLength: 3
-  _minPlatformLength: 3
-  _minGapLength: 2
+  _minPlatformLength: 2
+  _minGapLength: 1
   _tileSpawners:
   - {fileID: 2142632100}
   - {fileID: 293372026}

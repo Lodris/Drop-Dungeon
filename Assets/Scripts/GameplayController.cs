@@ -15,7 +15,7 @@ public class GameplayController : MonoBehaviour {
     }
 
     private void Start() {
-        PlayerManager.instance.Init();
+        PlayerManager.Instance.Init();
         TilemapManager.Instance.Init();
     }
 

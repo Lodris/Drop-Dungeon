@@ -10,6 +10,6 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     public void Attack() {
-        Debug.Log("Attacking");
+        PlayerManager.Instance._animator.SetTrigger("Attack");
     }
 }
