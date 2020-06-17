@@ -21,10 +21,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void FixedUpdate() {
         Move();
-
-        //if (_rigidbody2D.velocity.y < 0) {
-        //    _rigidbody2D.velocity += new Vector2(0f, -0.8f);
-        //}
     }
 
     public void Right() {
@@ -55,15 +51,19 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Flip() {
         _isFacingRight = !_isFacingRight;
-        Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
-        transform.localScale = theScale;
+        Vector3 flippedScale = transform.localScale;
+        flippedScale.x *= -1;
+        transform.localScale = flippedScale;
+    }
+
+    public void Stop() {
+        _horizontalMove = 0;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.collider.CompareTag("Walls")) {
             PlayerManager.Instance._animator.SetBool("isMoving", false);
-            _horizontalMove = 0;
+            Stop();
         }
     }
 }

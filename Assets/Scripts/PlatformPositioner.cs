@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class PlatformPositioner : MonoBehaviour {
-    public static Transform LastTransform;
+    public static PlatformPositioner Instance { get; private set; }
+    public List<Transform> LastTransforms = new List<Transform>();
 
 #pragma warning disable 0649
     [SerializeField] private Transform _bottomRow;
@@ -22,15 +23,26 @@ public class PlatformPositioner : MonoBehaviour {
     private int _currentPlatformLength = 0;
     private int _currentGapLength = 0;
 
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        } else if (Instance != this) {
+            Destroy(gameObject);
+            return;
+        }
+    }
+
     public void Init() {
         _tileSpawnersValues = new int[_tileSpawners.Length];
-        LastTransform = _bottomRow;
+        LastTransforms.Add(_bottomRow);
     }
 
     private void Update() {
-        if (LastTransform != null) {
-            if (LastTransform.position.y >= _tileSpawners[0].transform.position.y + _rowGapLength) {
+        if (LastTransforms.Count > 0) {
+            if (LastTransforms[0].position.y >= _tileSpawners[0].transform.position.y + _rowGapLength) {
+                LastTransforms.Clear();
                 GetLine();
+                EnemiesSpawningManager.Instance.PickRandomTilesToSpawnEnemiesOn();
             }
         }
     }

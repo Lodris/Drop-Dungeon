@@ -14,7 +14,8 @@ public class TilemapManager : MonoBehaviour {
     [SerializeField] private Transform _player;
     [SerializeField] private Transform _camera;
     [SerializeField] private Transform _environment;
-    [SerializeField] private List<EnvironmentMovement> _environmentElements;
+    [SerializeField] private List<Transform> _backgrounds;
+    [SerializeField] private Transform _walls;
 #pragma warning restore 0649
 
     private List<PlatformMovement> _platforms;
@@ -49,8 +50,11 @@ public class TilemapManager : MonoBehaviour {
             _isStarted = true;
             InitAllTiles();
             _platformPositioner.Init();
-            foreach (EnvironmentMovement environmentElement in _environmentElements) {
-                environmentElement.Init();
+            foreach (Transform background in _backgrounds) {
+                background.GetComponent<EnvironmentMovement>().Init();
+            }
+            foreach (Transform wall in _walls) {
+                wall.GetComponent<EnvironmentMovement>().Init();
             }
         }
     }

@@ -25,8 +25,8 @@ public class EnvironmentMovement : MonoBehaviour {
     private void Update() {
         if (_isMoving) {
             transform.position += new Vector3(0f, _speed, 0f) * Time.deltaTime;
-            if (transform.localPosition.y >= 10f) {
-                transform.localPosition = new Vector3(0f, -20f, 0f);
+            if (transform.localPosition.y >= 12f) {
+                transform.localPosition = new Vector3(transform.position.x, -12f, transform.position.z);
             }
         }
     }

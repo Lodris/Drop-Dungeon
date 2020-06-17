@@ -17,6 +17,7 @@ public class GameplayController : MonoBehaviour {
     private void Start() {
         PlayerManager.Instance.Init();
         TilemapManager.Instance.Init();
+        EnemiesSpawningManager.Instance.Init();
     }
 
     private void OnDestroy() {
