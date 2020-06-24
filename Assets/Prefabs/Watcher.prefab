@@ -12,10 +12,12 @@ GameObject:
   - component: {fileID: 4020008387107394007}
   - component: {fileID: 6835544129032815280}
   - component: {fileID: -8163650621248594924}
+  - component: {fileID: -4568594209515057244}
   - component: {fileID: 7069939980123749473}
+  - component: {fileID: 1959824729492301772}
   m_Layer: 9
   m_Name: Watcher
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,6 +123,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-4568594209515057244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4020008387107394006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40634d594ad65e4096c8cb233888eca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyMovement: {fileID: 7069939980123749473}
 --- !u!114 &7069939980123749473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,3 +150,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementSmoothing: 0.05
   _runSpeed: 10
+--- !u!95 &1959824729492301772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4020008387107394006}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 356e43ece45af964d9df665f361b2afc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -69,7 +69,7 @@ public class EnemiesSpawningManager : MonoBehaviour {
         halfHeight = halfHeight / 2f;
         enemy.transform.position = new Vector3(position.x, position.y + 0.5f + halfHeight, 0f);
 
-        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
-        enemyMovement.Init(minXPosition, maxXPosition);
+        EnemyManager enemyManager = enemy.GetComponent<EnemyManager>();
+        enemyManager.Init(minXPosition, maxXPosition);
     }
 }

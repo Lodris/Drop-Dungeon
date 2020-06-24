@@ -40,6 +40,10 @@ public class EnemyMovement : MonoBehaviour {
             } else if (transform.position.x > _maxXPosition) {
                 _horizontalMove = -_runSpeed;
             }
+
+            if (transform.position.y > TilemapManager.Instance.transform.position.y + 7f) {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -66,5 +70,9 @@ public class EnemyMovement : MonoBehaviour {
         Vector3 flippedScale = transform.localScale;
         flippedScale.x *= -1;
         transform.localScale = flippedScale;
+    }
+
+    public void Stop() {
+        _horizontalMove = 0;
     }
 }

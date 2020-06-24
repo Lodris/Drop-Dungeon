@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Walls
   - Platforms
+  - Enemy
+  - Dead
   layers:
   - Default
   - TransparentFX
