@@ -4155,7 +4155,7 @@ GameObject:
   - component: {fileID: 1231207761}
   - component: {fileID: 1231207762}
   - component: {fileID: 1231207763}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Hitbox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -6664,11 +6664,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LastTransforms: []
   _bottomRow: {fileID: 796750052}
-  _platformLength: 80
+  _platformLength: 100
   _gapLength: 15
   _rowGapLength: 3
-  _minPlatformLength: 2
-  _minGapLength: 1
+  _minPlatformLength: 4
+  _minGapLength: 2
   _tileSpawners:
   - {fileID: 2142632100}
   - {fileID: 293372026}
@@ -7091,7 +7091,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 4020008387107394006, guid: 5187b034246185e44ae757dd45056261,
     type: 3}
-  _maxEnemiesPerLine: 1
+  _maxEnemiesPerLine: 3
 --- !u!1001 &2002911895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7549,7 +7549,7 @@ GameObject:
   - component: {fileID: 2066318605}
   - component: {fileID: 2066318607}
   - component: {fileID: 2066318606}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Attack Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -7583,6 +7583,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _collider: {fileID: 2066318607}
+  _environmentMovementSpeedModifier: 2
 --- !u!58 &2066318607
 CircleCollider2D:
   m_ObjectHideFlags: 0

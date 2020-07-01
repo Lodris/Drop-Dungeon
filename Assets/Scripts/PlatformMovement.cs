@@ -8,7 +8,6 @@ public class PlatformMovement : MonoBehaviour {
 
     private void Start() {
         TilemapManager.Instance.AddTile(this);
-        _speed = TilemapManager.Instance.PlatformMovementSpeed;
     }
 
     public void Init() {
@@ -17,6 +16,8 @@ public class PlatformMovement : MonoBehaviour {
 
     private void Update() {
         if (_isMoving) {
+            _speed = TilemapManager.Instance.PlatformMovementSpeed;
+
             transform.position += new Vector3(0f, _speed, 0f) * Time.deltaTime;
             if (transform.position.y > TilemapManager.Instance.transform.position.y + 7f) {
                 Destroy(gameObject);

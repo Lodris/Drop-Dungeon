@@ -13,6 +13,7 @@ public class PlayerAttack : MonoBehaviour {
 
     public void Attack() {
         PlayerManager.Instance.OnAttack();
+        TilemapManager.Instance.PlatformMovementSpeed /= PlayerManager.Instance.EnvironmentMovementSpeedModifier;
     }
 
     public void EnableAttackCollider() {

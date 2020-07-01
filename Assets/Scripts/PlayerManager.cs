@@ -7,6 +7,7 @@ public class PlayerManager : MonoBehaviour {
     public static PlayerManager Instance { get; private set; }
 
     [NonSerialized] public Animator Animator;
+    [NonSerialized] public float EnvironmentMovementSpeedModifier = 2f;
 
 #pragma warning disable 0649
     [SerializeField] private PlayerMovement _playerMovement;
@@ -34,8 +35,6 @@ public class PlayerManager : MonoBehaviour {
     public void OnAttack() {
         StartCoroutine(_playerHitbox.DisableHitbox());
         Animator.SetTrigger("Attack");
-        Animator.SetBool("isMoving", false);
-        _playerMovement.Stop();
     }
 
     public void EnableAttackCollider() {
@@ -44,6 +43,10 @@ public class PlayerManager : MonoBehaviour {
 
     public void DisableAttackCollider() {
         _playerAttack.DisableAttackCollider();
+    }
+
+    public void ReturnToNormalSpeed() {
+        TilemapManager.Instance.PlatformMovementSpeed *= EnvironmentMovementSpeedModifier;
     }
 
     public void Hit() {
