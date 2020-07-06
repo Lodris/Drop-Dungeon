@@ -64,6 +64,7 @@ public class PlayerManager : MonoBehaviour {
     }
 
     public void Hit() {
+        IsAttacking = false;
         StartCoroutine(_playerHitbox.Blink());
         Animator.SetTrigger("Hit");
         Animator.SetBool("isMoving", false);
