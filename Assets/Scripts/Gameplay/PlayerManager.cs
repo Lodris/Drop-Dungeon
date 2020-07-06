@@ -57,14 +57,16 @@ public class PlayerManager : MonoBehaviour {
         _playerAttack.DisableAttackCollider();
     }
 
-    public void ReturnToNormalSpeed() {
+    public void ResetAttackParameters() {
         TilemapManager.Instance.PlatformMovementSpeed *= EnvironmentMovementSpeedModifier;
         IsAttacking = false;
         _playerHitbox.EnableHitbox();
     }
 
     public void Hit() {
-        IsAttacking = false;
+        if (IsAttacking) {
+            ResetAttackParameters();
+        }
         StartCoroutine(_playerHitbox.Blink());
         Animator.SetTrigger("Hit");
         Animator.SetBool("isMoving", false);
